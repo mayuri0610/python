@@ -1,0 +1,69 @@
+{% extends "base.html" %}{% load static %}{% block content %}
+
+<div class="ec-content-wrapper">
+    <div class="content">
+        <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
+            <div>
+                <h1>State</h1>
+                <p class="breadcrumbs"><span><a href="{% url 'index' %}">Home</a></span>
+                    <span><i class="mdi mdi-chevron-right"></i></span>State</p>
+            </div>
+            <div>
+                <a href="{% url 'add_state' %}" class="btn btn-primary"> Add state</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-default">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="responsive-data-table" class="table"
+                                style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>SR NO</th>
+                                        <th>Position</th>
+                                        <th>Country</th>
+                                        <th>State </th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    {% for i in data %}
+                                    <tr> 
+                                        <td>{{forloop.counter}}</td>
+                                        <td>{{i.position}}</td>
+                                        <td>{{i.country.country_name}}</td>
+                                        <td>{{i.state_name}}</td>
+                                        <td>
+                                            {% if i.is_active %}
+                                            <a href="{% url 'DeactiveState' i.id %}"><button><img src="{% static 'assets/img/icons/active.png' %}" alt="" srcset="" width="20px"></button></a>
+                                            {% else %}
+                                            <a href="{% url 'ActiveState' i.id %}"><button><img src="{% static 'assets/img/icons/deactive.png' %}" alt="" srcset="" width="20px"></button></a>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <button><a class="dropdown-item" href="{% url 'state_update' i.id %}">Edit</a></button>
+                                                <button><a class="dropdown-item" href="{% url 'state_delete' i.id %}">Delete</a></button>
+                                                
+                                            </div>
+                               
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End Content -->
+</div> <!-- End Content Wrapper -->
+{% endblock %}
+
+

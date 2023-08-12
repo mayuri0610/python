@@ -1,0 +1,59 @@
+{% extends "base.html" %}{% load static %}{% block content %}
+            
+			<!-- CONTENT WRAPPER -->
+			<div class="ec-content-wrapper">
+				<div class="content">
+					<div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
+						<div>
+							<h1>Location</h1>
+							<p class="breadcrumbs"><span><a href="{% url 'index' %}">Home</a></span>
+								<span><i class="mdi mdi-chevron-right"></i></span>Location</p>
+						</div>
+					</div>
+					
+					<!-- End Content -->
+					<div class="row">
+						<div class="col-xl-2 col-sm-6 p-b-15 lbl-card text-center">
+							<div class="card card-mini dash-card card-1">
+								<a href="{% url 'country_table' %}">
+									<div class="card-body">
+										<img src="{% static 'assets//img/countries.png' %}" class="pb-4" width="80" alt="">
+									    <h2 class="mb-1">COUNTRY</h2>
+									</div>
+								</a>
+								
+							</div>
+						</div>
+						<div class="col-xl-2 col-sm-6 p-b-15 lbl-card text-center">
+							<div class="card card-mini dash-card card-2">
+								<a href="{% url 'state_table' %}">
+								<div class="card-body">
+									<img src="{% static 'assets//img/state.png' %}" class="pb-4" width="80" alt="">
+								    <h2 class="mb-1">STATE</h2>
+								</div>
+							    </a>
+							</div>
+						</div>
+						<div class="col-xl-2 col-sm-6 p-b-15 lbl-card text-center">
+							<div class="card card-mini dash-card card-3">
+								<a href="{% url 'city_table' %}">
+								<div class="card-body">
+									<img src="{% static 'assets//img/city.png' %}" class="pb-4" width="80" alt="">
+								    <h2 class="mb-1">CITY</h2>
+								</div>
+							    </a>
+							</div>
+						</div>
+						
+					</div>
+
+					
+					
+					
+					
+				</div> <!-- End Content -->
+			</div> <!-- End Content Wrapper -->
+			
+            
+			<!-- Footer -->
+			{% endblock %}

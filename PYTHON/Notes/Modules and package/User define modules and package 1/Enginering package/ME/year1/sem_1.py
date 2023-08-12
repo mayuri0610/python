@@ -1,0 +1,13 @@
+def sub1() :
+    print("Branch ET\n1st YEAR\nSEM 1\n")
+    print("THEORY SUBJECT :")
+    print("English")
+    print("Mathematics – I")
+    print("Basic Thermodynamics")
+    print("Basic Electrical & Electronics Engineering")
+    print("Engineering Mechanics - I")
+    print("Workshop Technology")
+    print("Geometrical Drawing")
+    print("Basic Electrical & Electronics Laboratory")
+    print("Workshop Practicals – I")
+    print("Communicative English Lab")

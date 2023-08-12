@@ -1,0 +1,5 @@
+a=int(input("Enter the value of a="))
+b=int(input("Enter the value of b="))
+c=int(input("Enter the value of c="))
+ans=a**3+b**3+c**3+3*(a+b)*(b+c)*(c+a)
+print("(a+b+c)^3=",ans)

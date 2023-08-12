@@ -1,0 +1,10 @@
+def sub2() :
+    print("Branch CIVIL\n1st YEAR\nSEM 2\n")
+    print("THEORY SUBJECT :")
+    print("Mathematics II")
+    print("Physics")
+    print("Programming and Data Structure")
+    print("Basic Electronics")
+    print("Engineering Drawing and Graphics")
+    print("Electrical Technology")
+    print("Introduction to Manufacturing Processes")

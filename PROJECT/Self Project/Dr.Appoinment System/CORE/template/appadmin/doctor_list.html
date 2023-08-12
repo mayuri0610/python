@@ -1,0 +1,87 @@
+{% extends "appadmin/base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+	<div class="content container-fluid">
+
+		<!-- Page Header -->
+		<div class="page-header">
+			<div class="row">
+				<div class="col-sm-7 col-auto">
+					<h3 class="page-title">List of Doctors</h3>
+					<ul class="breadcrumb">
+						<li class="breadcrumb-item"><a href="{% url 'index' %}">Dashboard</a></li>
+						<li class="breadcrumb-item"><a href="javascript:(0);">Users</a></li>
+						<li class="breadcrumb-item active">Doctor</li>
+					</ul>
+				</div>
+				<div class="col-sm-5 col">
+					<a href="{% url 'doctor_profile' %}" class="btn btn-primary float-right mt-2">Add Doctor</a>
+				</div>
+			</div>
+		</div>
+		<!-- /Page Header -->
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="card">
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="datatable table table-hover table-center mb-0">
+								<thead>
+									<tr>
+										<th>Doctor Name</th>
+										<th>Speciality</th>
+										<th>Member Since</th>
+										<th>Earned</th>
+										<th>Account Status</th>
+
+									</tr>
+								</thead>
+								<tbody>
+									{% for i in doctorprofileobj %}
+									<tr>
+										<td>
+											<h2 class="table-avatar">
+												<a href="{% url 'profile' %}" class="avatar avatar-sm mr-2"><img
+														class="avatar-img rounded-circle"
+														src="{% static 'assets/img/doctors/doctor-thumb-01.jpg' %}"
+														alt="User Image"></a>
+												<a href="{% url 'profile' %}">{{i.user.first_name}}&nbsp;{{i.user.last_name}}</a> 
+											
+											</h2>
+										</td>
+										
+										<td>{{i.speciality.}}</td>
+
+										<td>{{i.about}}<br><small>{{i.fees}}</small></td>
+
+										<td>{{i.salary}}</td>
+
+										<td>
+											{% if i.status %}
+												<a href="{%  url 'doctor_deactive' i.id %}"><button>Active</button></a>    
+											{% else %}               
+												<a href="{% url 'doctor_active' i.id %}"><button>Deactive</button></a>    
+											{% endif %}
+										</td>
+									</tr>
+									{% endfor %}
+									
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<!-- /Page Wrapper -->
+
+
+
+{% endblock %}

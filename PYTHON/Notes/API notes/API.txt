@@ -1,0 +1,143 @@
+API is software intermediary that allows two or more application to talk to each other.
+
+API Types :-
+	1. Private = It can be used within the organization
+	2. Partner = It can be used within the Business partners
+	3. Public = It can be used any third party Developers
+
+API Terms :-
+	1. Provider = Who provide the services and API's
+	2. Consumer = Who use that service and API's
+	always consumer communicate the providers API for the services
+
+
+Web API = An API's which is interface for web is called as Web API.
+It may consist of one or more endpoint to define request and response
+
+How web API Works : - 
+	step 1. Client makes HTTP Request to API
+	step 2. API will communicate to Web Application/Database(if needed)
+	step 3. Web Application/Database provides request data to API
+	step 4. API returns Data to Client in format Json or Xml Data
+
+How to use Web API :-
+	step 1. Register/Sing-up to API
+	step 2. API may provide API Key for Authentication purpose
+			API Key/Token : 23589328Abgbsfhn26744	
+	step 3. Whenever you need to communicate with server make Request to API with API key
+			http://leocoders.com/?key=23589328Abgbsfhn26744
+	step 4. If API Key authentication succeed, API will provide required Data
+
+
+REST = It is an architectural guideline to develop Web API.
+Rest API = The API which is developed using REST is known as REST API/ RESTful API
+
+How REST Web API Works : - 
+	step 1. Client makes HTTP Request to API
+	step 2. API will communicate to Web Application/Database(if needed)
+	step 3. Web Application/Database provides request data to API
+	step 4. API returns Data to Client in format Json or Xml Data
+
+REST API :- 
+	CURD Operations :- 
+		1. Create -> POST -> Creating/Posting/Inserting Data
+		2. Read   -> Get -> Reading/Getting/Retrieving Data
+		3. Update -> Put,Patch -> (Complete Update - PUT), (Partial Update - Patch)
+		4. Delete -> Delete -> Deleteing Data
+
+Request - Response
+	1. Request for all students
+	=>	Request -> GET:/api/students
+		Response -> [
+					{"id":1,"name":"Ankush"},
+					{"id":2,"name":"Yagnesh"},
+					...
+				]
+	2. Request for one Student having id = 1
+	=>	Request -> GET:/api/students/1
+		Response -> [
+					{"id":1,"name":"Ankush"}
+				]
+	3. Request Posting/Creating/Inserting Data
+	=>	Request -> POST:/api/students
+				{"name":"Rahul"}
+		Response -> [
+					{"id":3,"name":"Rahul"}
+				]
+	4. Request for Updating Data, id=1
+	=>	Request -> PUT or PATCH:/api/students/1
+				{"name":"Amol"}
+		Response -> [
+					{"id":1,"name":"Amol"}
+				]
+	5. Request for Deleting Data, id=1
+	=>	Request -> DELETE:/api/students/1
+				{"name":"Amol"}
+		Response -> [
+					{"id":1,"name":"Amol"}
+				]
+RESTful API's ->
+	1. GET(all data show) = /api/students
+	2. GET(specific data show) = /api/students/1
+	3. POST = /api/students
+	4. PUT = /api/students/1
+	5. PATCH = /api/students/1
+	6. DELETE = /api/students/1
+
+Django Rest Framework :- 
+	Django Rest Framework is poerful and flexible toolkit for building Web API's.
+
+Why use Django Rest Framework for building Web API's :-
+	1. The Web browsable APIis huge usablility win for your developers.
+	2. Authentication policies including pakages for OAuth1 and OAuth2.
+	3. Serilizatiin that supports both ORM and non-ORM data sources.
+	4. Customizable all the way down-just use regular function-based views if don't need the more powerful features.
+	5. Extensive documentation, and great community support.
+	6. Used and trusted by internatinally recognized companies includeing Mozilla, Red Hat, Heroku and Eventbrite.
+
+Python JSON :- 
+	Python has a built in pakages called json, which is used to work with json data.
+	
+Methods Of Python JSON :-
+	1. dumps(data) = This is used to convert python objects into json string.
+		a. To use json pakages First we have to import it:
+			import json
+			python_data = {'name':'Durga','roll':101}
+			json_data = json.dumps(python_data)
+			print(json_data)
+			
+			{"name":"Durga","roll"101}
+	2.load(data) = This is used to parse json string.
+		Example :- import json
+				json_data = {"name":"Durga","roll"101}
+				parsed_data = json.loads(json_data)
+				print(parsed_data)
+				
+				{'name':'Durga','roll':101}
+
+Serilaizers :-
+	In Django Rest Framework, serilaizers are responsible for converting complex data such as queryset and model instances to native Python datatypes(called serilization) than can then be easily rendered into JSON, XML or other content types which is understandable by Front End.
+
+Serializers are also responsible for deserialization which means it allows parsed data to be convered back into complex types, after first validating the incoming data.
+
+Serialier Class :- 
+	A serializer class is very similar to a Django Form and ModelForm class, and includes similar validation flags on th various fields, such as required, max_length and default.
+
+DRF proviodes a serializer class which gives you a powerful, generic ways to control the output of your responses, as well as a ModelSerializer class which provides a useful shortcut for creating serializer that deal with model instances and quesrysets.
+
+How to Create Serializer Class :- 
+	1. Create a separate serializers.py file to write all seralizers
+
+		from  rest_framework import serializers
+		class StudentSerializer(serializers.Seralizer):
+			name = serializers.CharField(max_length = 100)
+			roll = serializers.IntegerField()
+			city = serializers.CharField(max_length = 100)
+
+Serialization :-
+	The process of converting complex data such as querysets and model instances to native Python datatypes are called as Serialization in DRF.
+
+1. Creating model instance stu
+	stu = Student.objects.get(id = 1)
+2. Converting model instances stu to Python Dict/Serializing Object
+	serializer = StudentSerializer(stu)

@@ -1,0 +1,32 @@
+What is Django Rest Framework?
+A: Django Rest Framework (DRF) is a powerful and flexible toolkit for building Web APIs. It is built on top of Django and provides a set of abstractions and utilities for building API views, serializers, authentication, and more.
+
+What are serializers in DRF?
+A: Serializers are the primary way of serializing and deserializing data in DRF. They allow complex data types, such as Django models, to be converted to JSON, XML, or other content types that can be easily consumed by client applications. Serializers also handle data validation, allowing for easy creation and updating of model instances.
+
+What are API views in DRF?
+A: API views are classes that define the behavior of an API endpoint. They typically handle HTTP methods such as GET, POST, PUT, DELETE, and PATCH, and can be used to retrieve, create, update, and delete data from the database. DRF provides several types of views, including generic views and viewsets, that make it easy to create APIs with minimal boilerplate code.
+
+What is authentication in DRF?
+A: Authentication is the process of verifying the identity of a user or application that is making a request to an API. DRF provides several authentication schemes out of the box, including session authentication, token authentication, and basic authentication. These authentication schemes can be combined and customized to suit the needs of your API.
+
+How do you implement pagination in DRF?
+A: DRF provides built-in support for pagination, which allows you to limit the number of objects returned in a single response and provide links to navigate to the next and previous pages of results. To implement pagination in DRF, you can use the PageNumberPagination class or one of the other pagination classes provided by DRF.
+
+How do you handle errors in DRF?
+A: DRF provides several ways to handle errors in API views, including raising exceptions, returning error responses with custom HTTP status codes and error messages, and using custom exception handlers to customize the format of error responses. DRF also provides built-in support for handling common exceptions, such as validation errors and permission errors.
+
+What is the difference between Django and DRF?
+A: Django is a web framework for building full-stack web applications, while DRF is a toolkit for building Web APIs. DRF is built on top of Django and provides additional functionality specific to building APIs, such as serialization, authentication, and pagination.
+
+What is a viewset in DRF?
+A: A viewset is a class that defines a set of related views for a particular model or set of models. Viewsets typically provide CRUD (create, read, update, delete) operations for a model, as well as any additional custom actions that you define.
+
+What is the difference between a serializer and a model in DRF?
+A: A serializer is a class that defines how data should be serialized or deserialized, while a model is a class that defines the structure and behavior of a database table. Serializers are used to convert model instances to and from JSON or other formats, while models are used to represent and manipulate data in the database.
+
+How do you implement authentication in DRF?
+A: DRF provides several authentication schemes out of the box, including session authentication, token authentication, and basic authentication. You can also create custom authentication schemes by subclassing the BaseAuthentication class.
+
+What is the difference between APIView and ViewSet in DRF?
+A: APIView is a class-based view that provides a single method for handling a request, while ViewSet is a collection of methods that handle multiple types of requests for a particular resource or set of resources.

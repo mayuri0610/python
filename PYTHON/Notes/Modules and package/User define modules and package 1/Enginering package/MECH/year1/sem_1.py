@@ -1,0 +1,12 @@
+def sub1() :
+    print("Branch MECHANICAL\n1st YEAR\nSEM 1\n")
+    print("THEORY SUBJECT :")
+    print("Chemistry")
+    print("Electrical Sciences")
+    print("Mathematics - I")
+    print("Physics - I")
+    print("Chemistry Laboratory")
+    print("Workshop /Physics Laboratory")
+    print("Engineering Drawing")
+    print("Physical Training - I")
+    print("[NCC/NSO/NSS]")

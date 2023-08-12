@@ -1,0 +1,10 @@
+def sub2() :
+    print("Branch AI\n1ST YEAR\nSEM 2\n")
+    print("THEORY SUBJECT :")
+    print("Applied Mathematics - II")
+    print("Applied Physics - II")
+    print("Applied Chemistry - II")
+    print("Introduction to Programming")
+    print("Engineering Mechanics")
+    print("Electrical Science")
+    print("Communication Skills - II")

@@ -1,0 +1,121 @@
+{% extends "base.html" %}{% load static %}{% block content %}
+
+<div class="ec-content-wrapper">
+    <div class="content">
+        <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
+            <div>
+                <h1>language</h1>
+                <p class="breadcrumbs"><span><a href="{% url 'index' %}">Home</a></span>
+                    <span><i class="mdi mdi-chevron-right"></i></span>language</p>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addVendor"> Add language
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-default">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="responsive-data-table" class="table"
+                                style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>SR NO</th>
+                                        <th>Position</th>
+                                        <th>language</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    {% for i in data %}
+                                    <tr> 
+                                        <td>{{forloop.counter}}</td>
+                                        <td>{{i.position}}</td>
+                                        <td>{{i.language_name}}</td>
+                                        <td>
+                                            {% if i.is_active %}
+                                            <a href="{% url 'DeactiveLanguage' i.id %}"><button><img src="{% static 'assets/img/icons/active.png' %}" alt="" srcset="" width="20px"></button></a>
+                                            {% else %}
+                                            <a href="{% url 'ActiveLanguage' i.id %}"><button><img src="{% static 'assets/img/icons/deactive.png' %}" alt="" srcset="" width="20px"></button></a>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            
+                                                <button><a class="dropdown-item" href="{% url 'language_update' i.id %}"><img src="{% static 'assets/img/write.png' %}" width="20px" alt=""></a></button>
+                                                <button><a class="dropdown-item" href="{% url 'language_delete' i.id %}"><img src="{% static 'assets/img/bin.png' %}" width="20px"></a></button>
+                                                
+                                            </div>
+                               
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End Content -->
+</div> <!-- End Content Wrapper -->
+
+
+<div class="modal fade modal-add-contact" id="addVendor" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <form method="POST" action=" {%url 'add_language'%} ">
+                {% csrf_token %}
+                
+                <div class="modal-header px-4">
+                    <h5 class="modal-title">Add New language</h5>
+                </div>
+                <div class="modal-body px-4">
+                    <div class="row mb-2">
+                        <div class="col-lg-6">
+                            <div class="col-sm-2">
+                                <label for="exampleInputcityname1" class="form-label"
+                                    style="color: black;">POSITION</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="number" class="form-control" id="position" name="position"
+                                    placeholder="Add Position..." required="True">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="col-sm-8">
+                                <label for="exampleInputcityname1" class="form-label"
+                                    style="color: black;">language_name</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="language_name" name="language_name"
+                                    placeholder="Add language_name..." required="True">
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <label class="form-label" style="color: black;">SELECT OPTION</label>
+                        </div>
+                        <div class="dropdown">
+                            <select name="is_active" id="" class="form-control">
+                                <option value="1">Active</option>
+                                <option value="0">Deactive</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer px-4">
+                    <button type="button" class="btn btn-secondary btn-pill"
+                        data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary btn-pill">Save </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

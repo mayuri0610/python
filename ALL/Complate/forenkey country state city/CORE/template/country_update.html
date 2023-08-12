@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="{% url 'country_update' countryobj.id %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="number" name="position" value="{{countryobj.position}}" placeholder="Enter position"> <br><br>
+        <input type="text" value="{{countryobj.country_name}}" name="country_name" placeholder="Enter country name"><br><br>
+        {% if countryobj.country_pic %}
+        <img src="{{countryobj.country_pic.url}}">
+        {% endif %} <br>
+        <input type="file" name="country_pic"><br><br>
+        <label>Status</label><br>
+        {% if countryobj.status %}
+        <input type="radio" name="status" value="1" checked> Active
+        <input type="radio" name="status" value="0"> Deactive<br><br>
+        {% else %}
+        <input type="radio" name="status" value="1"> Active
+        <input type="radio" name="status" value="0" checked> Deactive<br><br>
+        {% endif %}
+        <input type="submit" value="submit">
+    </form>
+</body>
+
+</html>

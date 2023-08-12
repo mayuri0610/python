@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="{% url 'city_update' cityobj.id %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="number" name="position" value="{{cityobj.position}}" placeholder="Enter position"> <br><br>
+
+        <select name="state_name" id="">
+            <option value="{{cityobj.state.id}}">{{cityobj.state.state_name}}</option>
+            {% for i in stateobj %}
+                {% if i.id is cityobj.state.id %}
+
+                {%else%}
+                    <option value="{{i.id}}">{{i.state_name}}</option>
+                {%endif%}
+
+            {%endfor%}
+        </select><br><br>
+
+        <input type="text" value="{{cityobj.city_name}}" name="city_name" placeholder="Enter city name"><br><br>
+
+        {% if cityobj.city_pic %}
+            <img src="{{cityobj.city_pic.url}}">
+        {% endif %} <br>
+
+        <input type="file" name="city_pic"><br><br>
+
+        <label>Status</label><br>
+        {% if cityobj.status %}
+        <input type="radio" name="status" value="1" checked> Active
+        <input type="radio" name="status" value="0"> Deactive<br><br>
+        {% else %}
+        <input type="radio" name="status" value="1"> Active
+        <input type="radio" name="status" value="0" checked> Deactive<br><br>
+        {% endif %}
+        <input type="submit" value="submit">
+    </form>
+</body>
+
+</html>

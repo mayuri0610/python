@@ -1,0 +1,13 @@
+def sub3() :
+    print("Branch ET\n2ND YEAR\nSEM 3\n")
+    print("THEORY SUBJECT :")
+    print("Computational Mathematics")
+    print("Analog Electronics & Communication")
+    print("Applied Thermodynamics – II")
+    print("Mechanics of Machines – I")
+    print("Electrical Machines – I")
+    print("Marine Engineering Drawing")
+    print("Electronics Laboratory")
+    print("Heat & Chemical Laboratory")
+    print("Workshop Practicals – III")
+    print("Control Engineering Laboratory")

@@ -1,0 +1,49 @@
+1)setting.py
+
+import os
+
+STATICFILES_DIRS = [
+   os.path.join(BASE_DIR,'static')
+]
+
+
+2)base.py
+
+{% load static %}
+
+##############  header common code
+
+{% block content %}
+          
+{% endblock %}
+
+##########  footer common code
+
+
+simple === {% load static %}
+
+
+
+
+3) 
+
+"{% static 'assets/ ===========================   ' %} "
+
+
+
+4) html  -------->	table
+
+###############	starting
+
+{% extends "base.html" %}	or {% extends "admin/base.html" %}
+{% load static %}
+{% block content %}
+
+
+########   
+
+
+{% endblock %}
+
+##########	ending
+

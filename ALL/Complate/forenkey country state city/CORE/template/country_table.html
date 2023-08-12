@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+
+    <a href="{% url 'country_add' %}"><button>ADD COUNTRY</button></a><br><br>
+    <table>
+        <tr>
+            <th>Sr.No</th>
+            <th>Position</th>
+            <th>Image</th>
+            <th>Country Name</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        {% for i in countryobj %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.position}}</td>
+            <td>
+                {% if i.country_pic %}
+                    <img src="{{i.country_pic.url}}" height="50px" width="100px" >                                    
+                {% endif %}
+            </td>
+            <td>{{i.country_name}}</td>
+            <td>
+                {% if i.status%}
+                    <a href="{% url 'country_deactive' i.id %}"><button>Active</button></a>    
+                {% else %}               
+                    <a href="{% url 'country_active' i.id %}"><button>Deactive</button></a>    
+                {% endif %}
+            </td>
+            <td>
+                <a href="{% url 'country_delete' i.id %}"><button>Delete</button></a>
+                <a href="{% url 'country_update' i.id %}"><button>Edit</button></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

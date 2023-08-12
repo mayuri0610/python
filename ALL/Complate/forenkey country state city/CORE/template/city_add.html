@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{% url 'city_add' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="number" name="position" placeholder="Enter position"> <br><br>
+        <select name="country_name" id="">
+            {% for i in stateobj %}  
+            <option value="{{i.country.id}}">{{i.country.country_name}}</option>
+            {% endfor %}
+        </select><br><br>
+        <select name="state_name" id="">
+            {% for i in stateobj %}
+            <option value="{{i.id}}">{{i.state_name}}</option>
+            {% endfor %}
+        </select><br><br>
+        <input type="text" name="city_name" placeholder="Enter city name"><br><br>
+        <input type="file" name="city_pic"><br><br>
+        <label for="">Status</label><br>
+        <input type="radio" name="status" value="1">Active
+        <input type="radio" name="status" value="0">Deactive <br><br>
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>

@@ -1,0 +1,118 @@
+{% extends "base.html" %}{% load static %}{% block content %}
+
+
+<!-- CONTENT WRAPPER -->
+<div class="ec-content-wrapper">
+	<div class="content">
+		<div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
+			<div>
+				<h1>Settings</h1>
+				<!-- <p class="breadcrumbs"><span><a href="index.html">Home</a></span>
+								<span><i class="mdi mdi-chevron-right"></i></span>Location</p> -->
+			</div>
+		</div>
+
+		<!-- End Content -->
+		<div class="row">
+			<div class="col-xl-2 col-sm-6 p-b-15 lbl-card text-center">
+				<div class="card card-mini dash-card card-1">
+					<a href="{% url 'location' %}">
+						<div class="card-body">
+							<img src="{% static 'assets/img/location.png' %}" class="pb-4" width="80" alt="">
+							<h4 class="mb-1" style="color:#88aaf3">LOCATION</h4>
+						</div>
+					</a>
+
+				</div>
+			</div>
+			<div class="col-xl-2 col-sm-6 p-b-15 lbl-card text-center">
+				<div class="card card-mini dash-card card-1">
+					<a href="{% url 'education_table' %}">
+						<div class="card-body">
+							<img src="{% static 'assets/img/education.png' %}" class="pb-4" width="80" alt="">
+							<h4 class="mb-1" style="color:#88aaf3">EDUCATION</h4>
+						</div>
+					</a>
+
+				</div>
+			</div>
+			<div class="col-xl-2 col-sm-6 p-b-15 lbl-card text-center">
+				<div class="card card-mini dash-card card-2">
+					<a href="{% url 'gender_table' %}">
+						<div class="card-body">
+							<img src="{% static 'assets/img/gender.png' %}" class="pb-4" width="80" alt="">
+							<h4 class="mb-1" style="color:#88aaf3">GENDER</h4>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-xl-2 col-sm-6 p-b-15 lbl-card text-center">
+				<div class="card card-mini dash-card card-3">
+					<a href="{% url 'icebreak_table' %}">
+						<div class="card-body">
+							<img src="{% static 'assets/img/icebreaker.png' %}" class="pb-4" width="80" alt="">
+							<h4 class="mb-1" style="color:#88aaf3">ICEBREAKER</h4>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-xl-2 col-sm-6 p-b-15 lbl-card text-center">
+				<div class="card card-mini dash-card card-3">
+					<a href="{% url 'interest_table' %}">
+						<div class="card-body">
+							<img src="{% static 'assets/img/interest.png' %}" class="pb-4" width="80" alt="">
+							<h4 class="mb-1" style="color:#88aaf3">INTEREST</h4>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-xl-2 col-sm-6 p-b-15 lbl-card text-center">
+				<div class="card card-mini dash-card card-3">
+					<a href="{% url 'pets_table' %}">
+						<div class="card-body">
+							<img src="{% static 'assets/img/pet.png' %}" class="pb-4" width="80" alt="">
+							<h4 class="mb-1" style="color:#88aaf3">PETS</h4>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-xl-2 col-sm-6 p-b-15 lbl-card text-center">
+				<div class="card card-mini dash-card card-3">
+					<a href="{% url 'political_table' %}">
+						<div class="card-body">
+							<img src="{% static 'assets/img/political.png' %}" class="pb-4" width="80" alt="">
+							<h4 class="mb-1" style="color:#88aaf3">POLITICAL INCLINATION</h4>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-xl-2 col-sm-6 p-b-15 lbl-card text-center">
+				<div class="card card-mini dash-card card-3">
+					<a href="{% url 'prompts_table' %}">
+						<div class="card-body">
+							<img src="{% static 'assets/img/prompts.png' %}" class="pb-4" width="80" alt="">
+							<h4 class="mb-1" style="color:#88aaf3">PROMPTS</h4>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-xl-2 col-sm-6 p-b-15 lbl-card text-center">
+				<div class="card card-mini dash-card card-3">
+					<a href="{% url 'language_table' %}">
+						<div class="card-body">
+							<img src="{% static 'assets/img/language.png' %}" class="pb-4" width="80" alt="">
+							<h4 class="mb-1" style="color:#88aaf3">LANGUAGE</h4>
+						</div>
+					</a>
+				</div>
+			</div>
+
+		</div>
+
+
+
+
+
+	</div> <!-- End Content -->
+</div> <!-- End Content Wrapper -->
+{% endblock %}

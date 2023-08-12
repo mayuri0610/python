@@ -1,0 +1,114 @@
+
+1)PROJECT ---------> settings.py
+
+import os
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+
+2)PROJECT --------->    urls.py
+
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns = [
+    
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+
+
+3)APPLICATION -------> models.py
+
+grey_pic=models.ImageField(upload_to='folder name ',blank=True,null=True)
+
+
+
+
+
+
+4)APPLICATION ------->  views.py  ----------->    Database save
+
+blue_pic=request.FILES['blue_pic']
+
+or
+
+blue_pic=request.FILES.get('blue_pic')
+
+
+............objects.create(blue_pic=blue_pic)
+
+
+
+
+5)TEMPLATE -------> html form   ------->  DATA ENTER    
+
+<form method="POST" action=" {%url 'add_interest'%} " enctype="multipart/form-data">
+
+<input type="file" name="blue_pic" required="True">
+
+
+
+
+
+6)TEMPLATE -------> html form --------> Table  ----- DATA READ IN FRONTEND
+
+
+<td>
+    {% if i.blue_pic %}
+       <img src="{{i.blue_pic.url}}" height="50px" width="100px" >
+                                            
+    {% endif %}
+</td>
+
+
+
+
+7)APPLICATION -------> views.py   ------> Update 
+
+blue_pic=request.FILES.get('blue_pic')
+  if blue_pic:
+       interest_master.blue_pic=blue_pic
+  else:
+       pass
+
+
+
+
+
+8)  html   ----------> Table   --------->  Update
+
+
+<form method="POST" action=" {% url 'interest_update' interest_master.id %}" enctype="multipart/form-data">
+
+<div class="col-lg-6">
+	<div class="col-sm-8">
+		<label for="exampleInputcityname1" class="form-label" style="color: black;">Blue icon</label>
+
+		<select name="blue_pic" id="blue_pic">   ------------------
+
+		{% if interest_master.blue_pic %}           ------------
+
+             	<img src="{{interest_master.blue_pic.url}}" > ---------------------------------------
+
+         	{% endif %}
+
+		</select>
+	</div>
+	<div class="form-group">
+      	<input type="file"  id="blue_pic" name="blue_pic">
+    	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

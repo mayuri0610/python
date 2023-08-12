@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+
+    <a href="{% url 'state_add' %}"><button>ADD STATE</button></a><br><br>
+    <table>
+        <tr>
+            <th>Sr.No</th>
+            <th>Position</th>
+            <th>Image</th>
+            <th>Country Name</th>
+            <th>State name</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        {% for i in stateobj %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.position}}</td>
+            <td>
+                {% if i.state_pic %}
+                    <img src="{{i.state_pic.url}}" height="50px" width="100px" >                                    
+                {% endif %}
+            </td>
+            <td>{{i.country.country_name}}</td>
+            <td>{{i.state_name}}</td>
+            <td>
+              {% if i.status%}
+                  <a href="{% url 'state_deactive' i.id %}"><button>Active</button></a>    
+              {% else %}               
+                  <a href="{% url 'state_active' i.id %}"><button>Deactive</button></a>    
+              {% endif %}
+          </td>
+          <td>
+            <a href="{% url 'state_delete' i.id %}"><button>Delete</button></a>
+            <a href="{% url 'state_update' i.id %}"><button>Edit</button></a>
+        </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

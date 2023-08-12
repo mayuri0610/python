@@ -1,0 +1,93 @@
+
+
+
+
+
+///////////////////////////////////////////////////////////
+
+
+from django.core.paginator import Paginator
+
+
+
+
+
+
+/////////////////////////////////////////////////////
+
+
+
+view.py
+
+
+def country_table(request):
+
+    data=Country_master.objects.all()
+
+    peginat= Paginator(data,4)
+
+    page_number=request.GET.get('page')
+
+    data=peginat.get_page(page_number)
+
+    context={'data':data}
+
+    return render(request, 'country_table.html',context)
+
+
+
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+html -------- table ------------- show data in pagination
+
+table khatam hone ke bad
+
+<div class="pagination">
+
+  <span class="step-links">
+
+      {% if page_obj.has_previous %}
+
+          <a href="?page=1">&laquo; first</a>
+
+          <a href="?page={{ data.previous_page_number }}">previous</a>
+
+      {% endif %}
+
+
+
+
+      <span class="current">
+
+          Page {{ data.number }} of {{ data.paginator.num_pages }}.
+
+      </span>
+
+
+
+
+      {% if data.has_next %}
+
+          <a href="?page={{ data.next_page_number }}">next</a>
+
+          <a href="?page={{ data.paginator.num_pages }}">last &raquo;</a>
+
+      {% endif %}
+
+  </span>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+

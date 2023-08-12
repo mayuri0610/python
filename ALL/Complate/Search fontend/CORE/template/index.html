@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+        <a href="{% url 'form' %}"><button>Add data</button></a><br><br>
+    <div class="col-12">
+        <form action="" method="get">
+            <input type="text" name="name" value="">
+            <input type="submit" value="Search">
+        </form>
+
+    </div>    <br><br>
+    <table>
+        <tr>
+            <th>Sr.no</th>
+            <th>Name</th>
+            <th>Roll.No</th>
+        </tr>
+        {% for i in profileobj %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.roll_no}}</td>
+        </tr>
+        {% empty %}
+        NO DATA FOUND
+        {% endfor %}
+    </table>
+</body>
+</html>

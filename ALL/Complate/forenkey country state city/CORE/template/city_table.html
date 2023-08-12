@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+
+    <a href="{% url 'city_add' %}"><button>ADD CITY</button></a><br><br>
+    <table>
+        <tr>
+            <th>Sr.No</th>
+            <th>Position</th>
+            <th>Image</th>
+            <th>Country Name</th>
+            <th>State name</th>
+            <th>City name</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        
+        {% for i in cityobj %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.position}}</td>
+            <td>
+                {% if i.city_pic %}
+                    <img src="{{i.city_pic.url}}" height="50px" width="100px" >                                    
+                {% endif %}
+            </td>
+            <td>{{i.state.country.country_name}}</td>
+            <td>{{i.state.state_name}}</td>
+            <td>{{i.city_name}}</td>
+            <td>
+                {% if i.status%}
+                    <a href="{% url 'city_deactive' i.id %}"><button>Active</button></a>    
+                {% else %}               
+                    <a href="{% url 'city_active' i.id %}"><button>Deactive</button></a>    
+                {% endif %}
+            </td>
+            <td>
+                <a href="{% url 'city_delete' i.id %}"><button>Delete</button></a>
+                <a href="{% url 'city_update' i.id %}"><button>Edit</button></a>
+            </td>
+
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

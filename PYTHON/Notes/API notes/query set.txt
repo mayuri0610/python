@@ -1,0 +1,57 @@
+Get query set :
+
+
+The .values() method allows you to return each object as a Python dictionary, with the names and values as key/value pairs:
+The .values() method is used to convert the QuerySet into a list of dictionaries. 
+
+mydata = Member.objects.all().values()
+
+
+
+Return Specific Columns:
+
+The values_list() method allows you to return only the columns that you specify.
+
+Return only the firstname columns:
+
+mydata = Member.objects.values_list('firstname')
+
+
+
+Return Specific Rows:
+You can filter the search to only return specific rows/records, by using the filter() method.
+Return only the records where firstname is 'Emil'
+mydata = Member.objects.filter(firstname='Emil').values()
+
+
+
+
+
+
+
+
+Django QuerySet - Order By
+
+.order_by():
+The .order_by() method is used to sort the records. 
+
+
+1)
+mydata = Member.objects.all().order_by('-firstname').values()
+
+Here, we're sorting the records by the 'firstname' field in descending order (indicated by the - sign before 'firstname'). This means that the records will be ordered from Z to A based on the values in the 'firstname' column.
+
+
+2)
+
+
+
+
+
+
+
+
+
+
+
+

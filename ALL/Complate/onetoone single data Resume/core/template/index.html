@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+
+    <a href="{% url 'form' %}"><button>ADD DATA</button></a><br><br>
+    <a href="{% url 'logout' %}"><button>LOGOUT</button></a><br><br>
+    <table>
+        <tr>
+            <th>Sr.No</th>
+            <th>Student Name</th>
+            <th>Roll Number</th>
+            <th>Aadhar Number</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        {% if studentobj %}
+        <tr>
+            <td>1.</td>
+            <td>{{studentobj.name}}</td>
+            <td>{{studentobj.roll}}</td>
+            <td>{{studentobj.aadhar_no}}</td>
+            <td>
+                {% if studentobj.status%}
+                    <a href="{% url 'deactive' studentobj.id %}"><button>Active</button></a>    
+                {% else %}               
+                    <a href="{% url 'active' studentobj.id  %}"><button>Deactive</button></a>    
+                {% endif %}
+            </td>
+            <td>
+                <a href="{% url 'delete' studentobj.id %}"><button>Delete</button></a>
+                <a href="{% url 'update' studentobj.id %}"><button>Edit</button></a>
+            </td>
+
+        </tr>
+        {% else %}
+        {% endif %}
+    </table>
+
+</body>
+</html>
