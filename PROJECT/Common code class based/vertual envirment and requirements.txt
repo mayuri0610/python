@@ -1,0 +1,26 @@
+vertual envirment create 
+
+in cmd under of project 
+
+cd /path/to/your/project
+
+python -m venv vertual_env_folder_name
+
+venv\Scripts\activate
+
+deactivate
+
+pip install package-name
+
+
+
+
+create requirements.txt
+
+pip freeze > requirements.txt
+
+
+
+pip install pipreqs
+pipreqs .
+pip install -r requirements.txt

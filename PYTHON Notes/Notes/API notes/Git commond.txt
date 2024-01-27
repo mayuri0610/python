@@ -1,0 +1,175 @@
+Git commont and theri use
+
+
+clone repositary using cmd :
+
+
+create new repo in github 
+	private or public
+
+	then go to folder when you clone this repo
+	D/python/cmd
+	
+	if you not install git commond then you install git 
+
+	copy the repo path http
+
+	git clone <repository-url> 
+	
+	cd repo_name
+	
+	git status
+	
+	git add .
+
+	git status
+	
+	git commit -m "Massage"
+
+	git push
+
+
+
+
+
+
+
+git --version : that commond used for check version of git 
+	
+	
+git --help :	that commond used for detailed information.
+
+git help -a and git help -g : list available subcommands and some concept guides.
+
+git help git : for an overview of the system.
+
+git help <command>  or git help <concept> : to read about a specific subcommand or concept.
+
+
+
+
+
+
+
+git init:Initializes a new Git repository in the current directory.
+	Create an empty Git repository or reinitialize an existing one.
+
+
+git clone <repository-url>:Clone a repository into a new directory.
+
+
+git add . :Stages changes to the specified file(s) for the next commit.
+	Add file contents to the index.
+
+
+git commit -m "<message>": Records the staged changes with a descriptive commit message.
+	Record changes to the repository.
+
+
+git status: Shows the status of your working directory, indicating untracked, modified, or staged files.
+	Show the working tree status.
+
+
+git push: Uploads your local commits to a remote repository.
+	Update remote refs along with associated objects.
+
+
+git pull origin <branch name>: Fetches changes from a remote repository and merges them into the current branch.
+	Fetch from and integrate with another repository or a local branch.
+
+
+
+
+git branch: Lists all branches in the repository.
+
+
+git branch "<branch-name>": Creates a new branch with the given name.
+
+
+git checkout "<branch-name>": Switches to the specified branch.
+
+
+git checkout -b "<branch-name>" : create a new branch named "mayuri" and immediately switch to that branch.
+
+
+git branch -d "<branch-name>"  : To delete a branch in a Git repository.
+
+
+git merge "<branch-name>": Merges the changes from another branch into the current branch.
+			Join two or more development histories together.
+
+
+git diff: Shows the differences between the working directory and the last commit.
+	Show changes between commits, commit and working tree, etc.
+
+
+git log: Displays the commit history, showing the author, date, and commit messages.
+	Show commit logs.
+
+
+
+
+
+
+
+
+
+
+git remote -v: Lists the remote repositories associated with the current repository.
+
+git remote add <remote-name> <repository-url>: Adds a new remote repository.
+
+git remote remove <remote-name>: Removes a remote repository.
+
+git stash: Temporarily stores your changes, allowing you to switch branches without committing.
+
+git stash pop: Restores the changes from the last stash and removes it from the stash list.
+
+git reset <file(s)>: Unstages the specified file(s) while keeping the changes in your working directory.
+			 Reset current HEAD to the specified state.
+
+git reset --hard <commit-hash>: Resets your working directory to the specified commit, discarding changes.
+
+git fetch: Retrieves the latest changes from a remote repository without merging them.
+
+git cherry-pick <commit-hash>: Applies the changes introduced by the specified commit to your current branch.
+
+git rebase <branch-name>: Reapplies your changes on top of another branch, leading to a cleaner commit history.
+			Reapply commits on top of another base tip.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

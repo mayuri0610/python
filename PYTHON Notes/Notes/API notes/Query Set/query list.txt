@@ -1,0 +1,91 @@
+
+Order By
+
+By default, the result is sorted ascending (the lowest value first), to change the direction to descending (the highest value first), use the minus sign (NOT), - in front of the field name:
+
+ascending Order
+
+mydata = Member.objects.all().order_by('firstname')
+
+
+Descending Order
+mydata = Member.objects.all().order_by('-firstname')
+
+Multiple Order Bys
+To order by more than one field, separate the fieldnames with a comma in the order_by() method:
+
+Example
+Order the result first by lastname ascending, then descending on id:
+
+mydata = Member.objects.all().order_by('lastname', '-id')
+
+*************************************************************************************************************************************************************************
+
+The values() method allows you to return each object as a Python dictionary, with the names and values as key/value pairs:
+mydata = Member.objects.all().values()
+
+Return Specific Rows
+You can filter the search to only return specific rows/records, by using the filter() method.
+mydata = Member.objects.filter(firstname='Emil').values()
+
+
+Return Specific Columns
+The values_list() method allows you to return only the columns that you specify.
+
+mydata = Member.objects.values_list('firstname')
+
+
+
+*************************************************************************************************************************************************************************
+
+
+
+QuerySet Filter
+The filter() method is used to filter your search, and allows you to return only the rows that matches the search term.
+
+
+
+
+
+
+
+
+
+
+
+*************************************************************************************************************************************************************************
+
+
+
+Property.objects.all().order_by('id').reverse()
+properties = Property.objects.all().exclude(status=2).order_by('sold_share')
+Property.objects.filter(status = 1)
+UserProperty.objects.filter(user_id=pk,status = 1).values_list('property_id', flat=True).order_by('id')
+Property.objects.filter(id__in=user_property)
+Leads.objects.filter(user_id=userid).filter(property_id=property)
+
+
+amenities = request.data.get('amenities', '')
+        try:
+            existing_amenities = Amenities.objects.filter(amenities__iexact=amenities)
+            if existing_amenities:
+                return Response(util.error(self, "Amenity already exists and cannot be added"))
+            else:
+		save
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
